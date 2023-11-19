@@ -1,0 +1,102 @@
+.view-tit{
+    height: 55px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+align-items: center;
+    border: 5px solid red;
+    font-size: 40px;
+    padding: 5px;
+    color: blue;
+    background: yellow;
+    text-transform: uppercase;
+
+
+
+}
+
+
+
+
+.view-input{
+    height: auto;
+    width: 700px;
+
+    border: 5px solid red;
+    font-size: 30px;
+   margin-left: -120px;
+    color: blue;
+    background: yellow;
+    overflow-y: hidden;
+    font-family: 'Playpen Sans', cursive;
+    padding: 10px;
+
+}
+
+.view-sidebar{
+    margin-right: 150px;
+    margin-bottom: 50px;
+}
+
+.view-plus{
+    font-size: 30px;
+    height: 50px;
+    width: 50px;
+    font-weight: bolder;
+    border-radius: 50%;
+    background: rgb(18, 18, 135);
+    color: wheat;
+    border: none;
+    transition:all 100ms ease-out;
+ 
+    padding: 2px;
+}
+.view-plus:hover{
+    font-size: 50px;
+    background: red;
+ 
+   
+  
+}
+
+.font-size{
+    position: absolute;
+    top: 150px;
+    right: 170px;
+}
+
+.font-view{
+    font-size: larger;
+    margin: 10px;
+    border: 1px solid red;
+    background: green;
+    padding: 5px;
+    
+}
+
+
+.button-33 {
+    margin-left: 200px;
+    margin-top: 20px;
+    background-color: #c2fbd7;
+    border-radius: 100px;
+    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+    color: green;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .button-33:hover {
+    box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
+  }
