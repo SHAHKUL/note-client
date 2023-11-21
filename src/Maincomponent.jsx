@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./component/navbar/Navbar";
 import View from "./component/view/View";
@@ -10,14 +10,12 @@ function Maincomponent() {
   const [dark, setDark] = useState(false);
   return (
     <>
-      <Navbar dark={dark} setDark={setDark}/>
+      <Navbar dark={dark} setDark={setDark} />
       <Routes>
-    
-        <Route path="/" element={<Home dark={dark}  />} />
+        <Route path="/" element={<Home dark={dark} />} />
         <Route path="/create/" element={<Create dark={dark} />} />
         <Route path="/view/:id" element={<View dark={dark} />} />
         <Route path="/edit/:id" element={<Edit dark={dark} />} />
-       
       </Routes>
     </>
   );

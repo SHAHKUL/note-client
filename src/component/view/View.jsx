@@ -12,21 +12,17 @@ function View() {
   const [col, setcol] = useState("");
   const [font, setFont] = useState(30);
 
-
   useEffect(() => {
     fetch();
   }, []);
 
   const fetch = async () => {
-    let Singledata = await axios.get(
-      `${URL}/note/get/${params.id}`,  {
-        headers: {
-          auth: window.localStorage.getItem("guvi"),
-        },
-      }
-    );
+    let Singledata = await axios.get(`${URL}/note/get/${params.id}`, {
+      headers: {
+        auth: window.localStorage.getItem("guvi"),
+      },
+    });
     setUser(Singledata.data);
-  
   };
 
   const addNote = (it) => {
@@ -37,7 +33,7 @@ function View() {
   const colors = ["#fe9b72", "#fec971", " #00d4fe", "#b693fd", "#e4ee91"];
   return (
     <>
-      <div className="font-size">
+      <div className="font-size" style={{ width: "200px" }}>
         <span style={{ display: "flex", alignItems: "center" }}>
           <button
             className="view-plus"
@@ -50,7 +46,14 @@ function View() {
           >
             +
           </button>
-          <p className="font-view">Font Size</p>
+          <button
+            style={{ width: "100px", margin: "10px", cursor: "e-resize" }}
+            className="button-27"
+            role="button"
+          >
+            Font Size
+          </button>
+
           <button
             className="view-plus"
             onClick={() => setFont(font - 1)}
@@ -78,6 +81,7 @@ function View() {
           </button>
 
           <ul
+            style={{ marginTop: "20px" }}
             className={`sidebar_list ${listOpen ? "sidebar_list_active" : ""}`}
           >
             {colors.map((item, index) => (
@@ -92,10 +96,15 @@ function View() {
         </div>
 
         <div>
-          <h1 className="view-tit"  style={{
+          <h1
+            className="view-tit"
+            style={{
               background: col ? col : user.title,
-             
-            }}> {user.title}</h1>
+            }}
+          >
+            {" "}
+            {user.title}
+          </h1>
 
           <div
             style={{
@@ -107,11 +116,10 @@ function View() {
             {user.desc}
           </div>
           <Link to={"/main/"}>
-        <button className="button-33">Back</button>
-      </Link>
+            <button className="button-33">Back</button>
+          </Link>
         </div>
       </div>
-     
     </>
   );
 }

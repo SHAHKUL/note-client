@@ -21,14 +21,11 @@ function Edit() {
   }, []);
 
   const fetch = async () => {
-    let Singledata = await axios.get(
-      `${URL}/note/get/${params.id}`,
-      {
-        headers: {
-          auth: window.localStorage.getItem("guvi"),
-        },
-      }
-    );
+    let Singledata = await axios.get(`${URL}/note/get/${params.id}`, {
+      headers: {
+        auth: window.localStorage.getItem("guvi"),
+      },
+    });
     formik.setValues(Singledata.data);
     setcol(Singledata.data.color);
     console.log(Singledata.data);
@@ -63,7 +60,7 @@ function Edit() {
   return (
     <>
       <h1 style={{ display: "flex", justifyContent: "center" }}>Edit</h1>
-      <div 
+      <div
         className="create-box"
         style={{ display: "flex", justifyContent: "space-evenly" }}
       >
@@ -110,11 +107,15 @@ function Edit() {
               value={formik.values.desc}
               onChange={formik.handleChange}
             ></textarea>
-            <button className="create-but" role="button" type="submit">
+            <button
+              style={{ marginTop: "40px" }}
+              className="create-but"
+              role="button"
+              type="submit"
+            >
               <span className="text">Update</span>
               <span>Save</span>
             </button>
-         
           </div>
         </form>
       </div>

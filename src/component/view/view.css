@@ -1,44 +1,41 @@
-.view-tit{
+.view-tit {
     height: 55px;
     width: 500px;
     display: flex;
     justify-content: center;
-align-items: center;
-    border: 5px solid red;
+    align-items: center;
+    border: none;
     font-size: 40px;
     padding: 5px;
     color: blue;
     background: yellow;
     text-transform: uppercase;
-
-
-
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-bottom: 40px;
 }
 
 
-
-
-.view-input{
+.view-input {
     height: auto;
     width: 700px;
-
-    border: 5px solid red;
+    border: none;
     font-size: 30px;
-   margin-left: -120px;
+    margin-left: -120px;
     color: blue;
     background: yellow;
     overflow-y: hidden;
     font-family: 'Playpen Sans', cursive;
     padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
 }
 
-.view-sidebar{
+.view-sidebar {
     margin-right: 150px;
     margin-bottom: 50px;
 }
 
-.view-plus{
+.view-plus {
     font-size: 30px;
     height: 50px;
     width: 50px;
@@ -47,31 +44,30 @@ align-items: center;
     background: rgb(18, 18, 135);
     color: wheat;
     border: none;
-    transition:all 100ms ease-out;
- 
+    transition: all 100ms ease-out;
+
     padding: 2px;
 }
-.view-plus:hover{
+
+.view-plus:hover {
     font-size: 50px;
-    background: red;
- 
-   
-  
+    background: rgb(255, 101, 101);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.font-size{
+.font-size {
     position: absolute;
     top: 150px;
     right: 170px;
 }
 
-.font-view{
+.font-view {
     font-size: larger;
     margin: 10px;
     border: 1px solid red;
     background: green;
     padding: 5px;
-    
+
 }
 
 
@@ -80,11 +76,11 @@ align-items: center;
     margin-top: 20px;
     background-color: #c2fbd7;
     border-radius: 100px;
-    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
     color: green;
     cursor: pointer;
     display: inline-block;
-    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+    font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
     padding: 7px 20px;
     text-align: center;
     text-decoration: none;
@@ -94,9 +90,54 @@ align-items: center;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-  }
-  
-  .button-33:hover {
-    box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+}
+
+.button-33:hover {
+    box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
     transform: scale(1.05) rotate(-1deg);
-  }
+}
+
+
+
+.button-27 {
+    width: 40px;
+    appearance: none;
+    background-color: #000000;
+    border: 2px solid #1A1A1A;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 18px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-height: 60px;
+    min-width: 0;
+    outline: none;
+    padding: 0px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+    will-change: transform;
+}
+
+.button-27:disabled {
+    pointer-events: none;
+}
+
+.button-27:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
+
+.button-27:active {
+    box-shadow: none;
+    transform: translateY(0);
+}

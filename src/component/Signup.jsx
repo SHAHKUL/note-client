@@ -6,6 +6,7 @@ import { useFormik } from "formik";
 
 import axios from "axios";
 import URL from "../URL";
+
 function Signup() {
   let navigate = useNavigate();
   let formik = useFormik({
@@ -26,8 +27,8 @@ function Signup() {
   });
   return (
     <div className="body-login">
-      <div class="container-login">
-        <div class="brand-logo-login">
+      <div className="container-login">
+        <div className="brand-logo-login">
           <img
             className="image"
             src="https://clickup.com/blog/wp-content/uploads/2020/01/note-taking.png"
@@ -36,7 +37,7 @@ function Signup() {
         <div class="brand-title-login">Task Manager</div>
         <h4 style={{ color: "#B32624", marginBottom: "40px" }}>Signup</h4>
         <form className="form-login" onSubmit={formik.handleSubmit}>
-          <div class="inputs-login">
+          <div className="inputs-login">
             <label className="label-login">NAME</label>
             <input
               className="input-login"

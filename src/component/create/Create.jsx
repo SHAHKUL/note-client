@@ -46,7 +46,7 @@ function Create() {
             alt="Add"
             onClick={() => setListOpen(!listOpen)}
           >
-            +
+            <span className="ytp-but">+</span>
           </button>
 
           <ul

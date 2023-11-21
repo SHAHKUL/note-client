@@ -5,13 +5,13 @@ import { useNavigate } from "react-router-dom";
 function Navbar({ dark, setDark }) {
   let navigate = useNavigate();
 
-  const logout=()=>{
+  const logout = () => {
     window.localStorage.removeItem("guvi");
     navigate("/");
-  }
+  };
 
   return (
-    <div className="navbar-container"  >
+    <div className="navbar-container">
       <div style={{ display: "flex", alignItems: "center" }}>
         <img
           src="https://clickup.com/blog/wp-content/uploads/2020/01/note-taking.png"
@@ -24,18 +24,20 @@ function Navbar({ dark, setDark }) {
       <div>
         {dark ? (
           <i
-            class="fa-solid fa-sun fa-2x"
+            className="fa-solid fa-sun fa-2x"
             style={{ color: "rgb(250,189,5)", cursor: "pointer" }}
             onClick={() => setDark(!dark)}
           ></i>
         ) : (
           <i
             onClick={() => setDark(!dark)}
-            class="fa-solid fa-moon fa-2x"
+            className="fa-solid fa-moon fa-2x"
             style={{ color: "rgb(0,1,32)", cursor: "pointer" }}
           ></i>
         )}
-        <button className="nav-logout" onClick={logout}>Logout</button>
+        <button className="nav-logout" onClick={logout}>
+          Logout
+        </button>
       </div>
     </div>
   );
