@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { formatDistanceToNow } from "date-fns";
+import { format } from "date-fns";
 const Card = (prop) => {
   const { cur, handleDelete, handleStore, setComple, setShowimportant } = prop;
+  const [alarm, setAlarm] = useState(false);
+
+  // const handleAlarm = () => {
+  //   setAlarm(!alarm);
+  // };
   return (
     <div
       className="box"
@@ -20,29 +25,47 @@ const Card = (prop) => {
           checked={cur.checked}
           onChange={(e) => setComple(e.target.checked)}
         />
-        <span className="button-59">
-          <p>Mark as Important</p>
-          <input
-            id="check-box"
-            type="checkbox"
-            checked={cur.mark}
-            onChange={(e) => setShowimportant(e.target.checked)}
-          />
-        </span>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {/* <div style={{display:"flex",flexDirection:"column",justifyContent:"flex-end",alignItems:"flex-end",marginTop:"10px"}}>
+          <i
+            className={`fa-${alarm ? "solid" : "regular"} fa-clock alarm`}
+            onClick={handleAlarm}
+            style={{ marginRight: "20px" }}
+          ></i>
+         {alarm&& <p style={{marginRight:"10px",marginTop:"10px"}}>Set Alarm on 4:18 PM, 21st November, 2023</p>}
+          </div> */}
+          <span className="button-59">
+            <p>Mark as Important</p>
+            <input
+              id="check-box"
+              type="checkbox"
+              checked={cur.mark}
+              onChange={(e) => setShowimportant(e.target.checked)}
+            />
+          </span>
+        </div>
       </span>
       <div>
         <span style={{ display: "flex" }}>
           {cur.complete ? (
             <h1>
-              <s>{cur.title}</s>
+              <s>{cur.title.toUpperCase()}</s>
             </h1>
           ) : (
-            <h1>{cur.title}</h1>
+            <h1>{cur.title.toUpperCase()}</h1>
           )}
           {cur.important && <i id="star" className="fa-solid fa-star"></i>}
         </span>
 
-        <p style={{ fontSize: "20px" }}>{cur.desc.slice(0, 60)}</p>
+        <p style={{ fontSize: "20px" }} className="para">
+          {cur.desc.slice(0, 90)}
+        </p>
         <span style={{ display: "flex", color: "blue" }}>
           <Link to={`/main/view/${cur._id}`}>
             <i className="fa-solid fa-eye icon"></i>
@@ -77,7 +100,8 @@ const Card = (prop) => {
           </button>
 
           <p className="create-by">
-            Created {formatDistanceToNow(new Date(cur.createdAt))}
+            Created on{" "}
+            {format(new Date(cur.createdAt), "h:mm a, do MMMM, yyyy")}
           </p>
         </div>
       </div>

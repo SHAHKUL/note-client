@@ -2,7 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Kalnia:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Diphylleia&display=swap');
 
 .home-box {
   border: 1px solid white;
@@ -223,15 +225,23 @@
   height: 30px;
 }
 
-.create-by {
-  margin-top: 10px;
-  font-size: 20px;
-  font-weight: 500;
-  margin-left: 30px;
-  font-family: 'Roboto', sans-serif;
-
+.para{
+  font-family: 'Lora', serif;
 }
 
+.create-by {
+  margin-top: 20px;
+  font-size: 17px;
+  font-weight: 700;
+  margin-left: 20px;
+  font-family: 'Diphylleia', serif;
+  word-spacing: 2px;
+}
+
+.alarm{
+font-size: 40px;
+cursor: pointer;
+}
 
 .remove-but {
   position: relative;

@@ -87,6 +87,12 @@ function Home({ dark }) {
     console.log(showimortant);
   };
 
+  const handleRemovefilter = () => {
+    setChecked("");
+    setInchecked("");
+    setImmediate("");
+  };
+
   const nextPage = () => {
     if (currentPage !== npage) {
       setCurrentpage(currentPage + 1);
@@ -105,6 +111,12 @@ function Home({ dark }) {
   const removeWord = () => {
     setFilterText("");
   };
+
+  const search = (
+    <div>
+      <h1>nohtisn is here</h1>
+    </div>
+  );
 
   return (
     <>
@@ -150,6 +162,14 @@ function Home({ dark }) {
                   />
                   <label style={{ paddingLeft: "5px" }}> Important</label>
                 </li>
+                <li style={{ padding: "5px" }}>
+                  <input
+                    id="check-box"
+                    type="checkbox"
+                    onChange={handleRemovefilter}
+                  />
+                  <label style={{ paddingLeft: "5px" }}> Clear Filter</label>
+                </li>
               </ul>
             </div>
           </span>
@@ -161,7 +181,9 @@ function Home({ dark }) {
             placeholder="Search the note name"
             onChange={(e) => setFilterText(e.target.value)}
           />
-          <i className="fa-solid fa-x remove-but" onClick={removeWord}></i>
+          {filterText && (
+            <i className="fa-solid fa-x remove-but" onClick={removeWord}></i>
+          )}
         </div>
         {records.map((cur) => {
           if (

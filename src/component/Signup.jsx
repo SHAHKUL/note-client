@@ -8,6 +8,8 @@ import axios from "axios";
 import URL from "../URL";
 
 function Signup() {
+  const [err, setErr] = useState("");
+
   let navigate = useNavigate();
   let formik = useFormik({
     initialValues: {
@@ -15,11 +17,28 @@ function Signup() {
       email: "",
       password: "",
     },
+    validate: (val) => {
+      const errors = {};
+      if (!val.name) {
+        errors.name = "* name field should not be empty";
+      }
+      if (!val.email) {
+        errors.email = "* email field should not be empty";
+      }
+      if (!val.password) {
+        errors.password = "* password field should not be empty";
+      }
+      return errors;
+    },
     onSubmit: async (values) => {
       try {
-        await axios.post(`${URL}/auth/register`, values);
-
-        navigate("/");
+        var str = await axios.post(`${URL}/auth/register`, values);
+        if (str.data.exist) {
+          setErr(str.data.message);
+        } else {
+          navigate("/");
+        }
+        console.log(str.data.exist);
       } catch (error) {
         console.log(error);
       }
@@ -46,6 +65,7 @@ function Signup() {
               value={formik.values.name}
               onChange={formik.handleChange}
             />
+            {formik.errors.name  ? <div className="handle-error" >{formik.errors.name}</div> : null}
             <label className="label-login">EMAIL</label>
             <input
               className="input-login"
@@ -54,6 +74,7 @@ function Signup() {
               value={formik.values.email}
               onChange={formik.handleChange}
             />
+             {formik.errors.email  ? <div className="handle-error" >{formik.errors.email}</div> : null}
             <label>PASSWORD</label>
             <input
               className="input-login"
@@ -63,7 +84,8 @@ function Signup() {
               value={formik.values.password}
               onChange={formik.handleChange}
             />
-
+             {formik.errors.password  ? <div className="handle-error" >{formik.errors.password}</div> : null}
+            <p className="handle-error" >{`${err}`}</p>
             <button className="button-login" type="submit">
               Submit
             </button>

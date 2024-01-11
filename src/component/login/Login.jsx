@@ -13,11 +13,22 @@ function Login() {
       email: "",
       password: "",
     },
+    validate: (val) => {
+      const errors = {};
+
+      if (!val.email) {
+        errors.email = "* email field should not be empty";
+      }
+      if (!val.password) {
+        errors.password = "* password field should not be empty";
+      }
+      return errors;
+    },
     onSubmit: async (val) => {
       try {
         var res = await axios.post(`${URL}/auth/login`, val);
         window.localStorage.setItem("guvi", res.data.token);
-
+console.log(res.data);
         if (res.data.token) {
           navigate("/main/");
         } else {
@@ -51,6 +62,7 @@ function Login() {
                 value={formik.values.email}
                 onChange={formik.handleChange}
               />
+                {formik.errors.email  ? <div className="handle-error" >{formik.errors.email}</div> : null}
               <label>PASSWORD</label>
               <input
                 className="input-login"
@@ -59,7 +71,8 @@ function Login() {
                 value={formik.values.password}
                 onChange={formik.handleChange}
               />
-              <p style={{ color: "red" }}>{`${err}`}</p>
+              {formik.errors.password  ? <div className="handle-error" >{formik.errors.password}</div> : null}
+              <p className="handle-error" >{`${err}`}</p>
               <button className="button-login" type="submit">
                 Login
               </button>
