@@ -1,14 +1,9 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { format } from "date-fns";
 const Card = (prop) => {
-  const { cur, handleDelete, handleStore, setComple, setShowimportant } = prop;
-  const [alarm, setAlarm] = useState(false);
+  const { cur, handleDelete, handleStore, setComple } = prop;
 
-  // const handleAlarm = () => {
-  //   setAlarm(!alarm);
-  // };
   return (
     <div
       className="box"
@@ -32,23 +27,19 @@ const Card = (prop) => {
             alignItems: "center",
           }}
         >
-          {/* <div style={{display:"flex",flexDirection:"column",justifyContent:"flex-end",alignItems:"flex-end",marginTop:"10px"}}>
-          <i
-            className={`fa-${alarm ? "solid" : "regular"} fa-clock alarm`}
-            onClick={handleAlarm}
-            style={{ marginRight: "20px" }}
-          ></i>
-         {alarm&& <p style={{marginRight:"10px",marginTop:"10px"}}>Set Alarm on 4:18 PM, 21st November, 2023</p>}
-          </div> */}
-          <span className="button-59">
-            <p>Mark as Important</p>
-            <input
-              id="check-box"
-              type="checkbox"
-              checked={cur.mark}
-              onChange={(e) => setShowimportant(e.target.checked)}
-            />
-          </span>
+          {cur.important ? (
+            <i
+              className="fa-solid fa-star fa-3x movie-add-watchlist"
+              onClick={() => handleStore(cur._id)}
+              style={{ cursor: "pointer" }}
+            ></i>
+          ) : (
+            <i
+              className="fa-regular fa-star fa-3x movie-add-watchlist"
+              onClick={() => handleStore(cur._id)}
+              style={{ cursor: "pointer" }}
+            ></i>
+          )}
         </div>
       </span>
       <div>
@@ -60,7 +51,7 @@ const Card = (prop) => {
           ) : (
             <h1>{cur.title.toUpperCase()}</h1>
           )}
-          {cur.important && <i id="star" className="fa-solid fa-star"></i>}
+          {/* {cur.important && <i id="star" className="fa-solid fa-star"></i>} */}
         </span>
 
         <p style={{ fontSize: "20px" }} className="para">

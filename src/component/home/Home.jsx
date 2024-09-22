@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./home.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
 import URL from "../../URL";
 import Card from "./Card";
+import Loader from "./Loader";
 
-function Home({ dark }) {
+function Home(prop) {
+  const { dark } = prop;
   const [list, setList] = useState([]);
   const [filterText, setFilterText] = useState("");
+  const [load, setLoad] = useState(false);
 
   const [comple, setComple] = useState(false);
   const [showimortant, setShowimportant] = useState(false);
@@ -30,21 +33,25 @@ function Home({ dark }) {
   }, []);
 
   const fetch = async () => {
+    setLoad(true)
     var res = await axios.get(`${URL}/note/get/`, {
       headers: {
         auth: window.localStorage.getItem("guvi"),
       },
     });
+    setLoad(false )
     setList(res.data);
   };
 
   const handleDelete = async (ide) => {
+    setLoad(true)
     await axios.delete(`${URL}/note/remove/${ide}`, {
       headers: {
         auth: window.localStorage.getItem("guvi"),
       },
     });
     fetch();
+    setLoad(false )
   };
 
   const handleStore = async (ide) => {
@@ -53,12 +60,12 @@ function Home({ dark }) {
         auth: window.localStorage.getItem("guvi"),
       },
     });
-
-    await axios.put(
+setLoad(true)
+ await axios.put(
       `${URL}/note/update/${ide}`,
       {
         ...get.data,
-        important: showimortant,
+        important: !get.data.important,
         complete: comple,
       },
       {
@@ -68,9 +75,16 @@ function Home({ dark }) {
       }
     );
     fetch();
-    console.log(showimortant);
-    console.log(get.data);
+    
+  setLoad(false)
+    
+    
   };
+
+
+  // const handleImportantButton=()=>{
+
+  // }
 
   const handleCheck = (e) => {
     setChecked(e.target.checked);
@@ -84,7 +98,6 @@ function Home({ dark }) {
 
   const handleImportant = (e) => {
     setImmediate(e.target.checked);
-    console.log(showimortant);
   };
 
   const handleRemovefilter = () => {
@@ -111,12 +124,6 @@ function Home({ dark }) {
   const removeWord = () => {
     setFilterText("");
   };
-
-  const search = (
-    <div>
-      <h1>nohtisn is here</h1>
-    </div>
-  );
 
   return (
     <>
@@ -175,7 +182,7 @@ function Home({ dark }) {
           </span>
 
           <input
-            style={{ background: "#303134" }}
+            style={{ background: "#ffff",color:'black' }}
             value={filterText}
             className="inputs"
             placeholder="Search the note name"
@@ -219,7 +226,7 @@ function Home({ dark }) {
         <Link to={"/main/create"}>
           <button className="plus">+</button>
         </Link>
-        <nav aria-label="Page navigation example">
+        <nav aria-label="Page navigation example" style={{marginTop:"170px"}}>
           <ul className="pagination justify-content-center" id="pag">
             <li className="page-item ">
               <a className="page-link" onClick={prevPage}>
@@ -251,6 +258,7 @@ function Home({ dark }) {
             </li>
           </ul>
         </nav>
+        {load && <Loader />}
       </div>
     </>
   );

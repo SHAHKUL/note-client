@@ -225,7 +225,7 @@
   height: 30px;
 }
 
-.para{
+.para {
   font-family: 'Lora', serif;
 }
 
@@ -238,9 +238,9 @@
   word-spacing: 2px;
 }
 
-.alarm{
-font-size: 40px;
-cursor: pointer;
+.alarm {
+  font-size: 40px;
+  cursor: pointer;
 }
 
 .remove-but {
@@ -258,4 +258,10 @@ cursor: pointer;
   scale: 0.8;
   color: red;
 
+}
+
+
+.movie-add-watchlist {
+  color: yellow;
+  cursor: pointer;
 }
